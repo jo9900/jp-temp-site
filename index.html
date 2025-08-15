@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="株式会社エーブル（ABEL & Co., Ltd.）は、AI、ブロックチェーン、データ分析、Web3などの先端技術を活用したソリューションを提供する企業です。金融、保険、不動産、教育分野でのDX推進をサポートします。">
+    <meta name="keywords" content="AI,ブロックチェーン,Web3,データ分析,DX,システム開発,コンサルティング,フィンテック,エーブル">
+    <meta name="author" content="株式会社エーブル">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://abelian.info/">
+    <title>株式会社エーブル | AI・ブロックチェーン・Web3技術のトータルソリューション</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="株式会社エーブル | AI・ブロックチェーン・Web3技術のトータルソリューション">
+    <meta property="og:description" content="株式会社エーブルは、AI、ブロックチェーン、データ分析、Web3などの先端技術を活用したソリューションを提供。金融、保険、不動産、教育分野でのDX推進をサポートします。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://abelian.info/">
+    <meta property="og:image" content="https://abelian.info/assets/logo-w.png">
+    <meta property="og:site_name" content="株式会社エーブル">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="株式会社エーブル | AI・ブロックチェーン・Web3技術のトータルソリューション">
+    <meta name="twitter:description" content="株式会社エーブルは、AI、ブロックチェーン、データ分析、Web3などの先端技術を活用したソリューションを提供。金融、保険、不動産、教育分野でのDX推進をサポートします。">
+    <meta name="twitter:image" content="https://abelian.info/assets/logo-w.png">
+    <link rel="icon" type="image/png" href="assets/logo-b.png">
+    <link rel="shortcut icon" type="image/png" href="assets/logo-b.png">
+    <link rel="apple-touch-icon" href="assets/logo-b.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@200;400;600&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "株式会社エーブル",
+      "alternateName": "ABEL & Co., Ltd.",
+      "url": "https://abelian.info/",
+      "logo": "https://abelian.info/assets/logo-w.png",
+      "description": "AI、ブロックチェーン、データ分析、Web3などの先端技術を活用したソリューションを提供する企業",
+      "foundingDate": "2024-09",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "虎ノ門４丁目１番１号 神谷町トラストタワー22階wework 122",
+        "addressLocality": "港区",
+        "addressRegion": "東京都",
+        "postalCode": "105-6922",
+        "addressCountry": "JP"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+81",
+        "contactType": "customer service",
+        "email": "cso@abelian.info"
+      },
+      "sameAs": [],
+      "employee": {
+        "@type": "Person",
+        "name": "リ　トウ",
+        "jobTitle": "代表者"
+      },
+      "areaServed": "JP",
+      "knowsAbout": ["AI", "ブロックチェーン", "Web3", "データ分析", "DX", "システム開発", "コンサルティング"],
+      "serviceType": ["AIソリューション", "ブロックチェーン開発", "データ分析", "システム開発", "ITコンサルティング"]
+    }
+    </script>
+</head>
+<body>
+<!-- Floating particles and effects -->
+<div class="glow-orb"></div>
+<div class="glow-orb"></div>
+<div class="glow-orb"></div>
+
+<!-- Floating background shapes -->
+<div class="floating-shapes" id="floatingShapes"></div>
+
+<!-- Floating background dots -->
+<div class="floating-dots" id="floatingDots"></div>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="language-switcher">
+            <div class="language-dropdown" id="languageDropdown">
+                <div class="language-current" id="currentLang">
+                    <span id="currentLangText">日本語</span>
+                </div>
+                <div class="language-options" id="languageOptions">
+                    <button class="language-option active" data-lang="ja">日本語</button>
+                    <button class="language-option" data-lang="en">English</button>
+                    <button class="language-option" data-lang="zh-tw">繁體中文</button>
+                    <button class="language-option" data-lang="ko">한국어</button>
+                    <button class="language-option" data-lang="ms">Bahasa Malaysia</button>
+                    <button class="language-option" data-lang="th">ไทย</button>
+                    <button class="language-option" data-lang="id">Bahasa Indonesia</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <img src="assets/logo-w.png" alt="株式会社エーブル ロゴ" class="logo">
+        </div>
+        <h1>株式会社エーブル</h1>
+        <p class="tagline">ABEL & Co., Ltd.</p>
+    </div>
+</header>
+
+<!-- Navigation -->
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="#company-info" data-i18n="nav.company">企業情報</a></li>
+            <li><a href="#business" data-i18n="nav.business">事業紹介</a></li>
+            <li><a href="#blog" data-i18n="nav.blog">ブログ</a></li>
+            <li><a href="#news" data-i18n="nav.news">お知らせ</a></li>
+            <li><a href="#careers" data-i18n="nav.careers">採用情報</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">お問合せ</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Company Info Section -->
+<section id="company-info" class="section">
+    <div class="container">
+        <h2>企業情報</h2>
+
+        <!-- CEO Message -->
+        <div class="ceo-message fade-in-scale">
+            <h3>創業者メッセージ（Company Vision）</h3>
+            <p>私たちは革新的な技術ソリューションを通じて、企業の成長と社会の発展に貢献します。</p>
+            <p class="ceo-name">Duncan Wong</p>
+        </div>
+
+        <!-- Company Overview -->
+        <div class="info-grid">
+            <div class="info-card fade-in-left">
+                <h3>会社概要</h3>
+                <p><strong>会社名：</strong>株式会社エーブル（ABEL & Co., Ltd.)</p>
+                <p><strong>設立：</strong>2024年9月</p>
+                <p><strong>資本金：</strong>3,000万円</p>
+                <p><strong>代表者：</strong>リ　トウ</p>
+                <p><strong>所在地：</strong>東京都港区虎ノ門４丁目1-1神谷町トラストタワーwework 22-122</p>
+                <p><strong>株主：</strong>Geronimo Consulting Limited</p>
+                <p><strong>取引銀行：</strong>三菱UFJ銀行</p>
+            </div>
+
+            <div class="info-card fade-in-right">
+                <h3>目的・事業内容</h3>
+                <ul>
+                    <li>ソフトウェアの企画、設計、開発、販売、輸出入、点検及び保守</li>
+                    <li>ITに関する企画、開発及びコンサルティング</li>
+                    <li>情報システムソリューション業務</li>
+                    <li>情報システムのインテグレーションサービス</li>
+                    <li>データストレージの構築、データ分析及びデータ処理に関するコンサルティング業務</li>
+                    <li>生成AIの構築、AIを利用するシステム、アプリケーションの企画、設計、開発、運営、管理及び提供</li>
+                    <li>前各号に附帯又は関連する一切の事業</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Business Introduction Section -->
+<section id="business" class="section">
+    <div class="container">
+        <h2>事業紹介</h2>
+
+        <!-- Services -->
+        <div class="services-grid">
+            <div class="service-card fade-in-up">
+                <h3>サービス</h3>
+                <p>
+                    Web3、銀行、保険、国際貿易、不動産など、複数の業界向け、A(AI)、B(ブロックチェーン)、C(クリプトグラフィー)、D(データ）、E(エコシステム）などの基盤技術に基づいたトータルソリューションのコンサルティング及び委託開発をメインにする。</p>
+            </div>
+        </div>
+
+        <!-- Main Products -->
+        <h3 style="text-align: center; margin: 3rem 0 2rem 0; color: #8b5cf6;">主な製品</h3>
+        <div class="products-grid">
+            <div class="product-card fade-in-up">
+                <h4>エッジAIモデルのローカライズされたアプリケーション</h4>
+                <p>クライアント環境に最適化されたエッジAIソリューション</p>
+            </div>
+            <div class="product-card fade-in-up">
+                <h4>カスタマイズされたエッジAI製品</h4>
+                <p>お客様のニーズに合わせた専用AI製品</p>
+            </div>
+            <div class="product-card fade-in-up">
+                <h4>AIアプリケーションのトレーニングコース</h4>
+                <p>AI導入・運用に関する包括的な教育プログラム</p>
+            </div>
+            <div class="product-card fade-in-up">
+                <h4>マルチプラットフォーム向けのカスタマイズされたアプリ</h4>
+                <p>様々なプラットフォームに対応したアプリ開発</p>
+            </div>
+            <div class="product-card fade-in-up">
+                <h4>データ分析サービス</h4>
+                <p>高度なデータ分析とビジネスインサイトの提供</p>
+            </div>
+            <div class="product-card fade-in-up">
+                <h4>定量取引プラットフォーム</h4>
+                <p>金融市場向けの高度な定量取引システム</p>
+            </div>
+        </div>
+
+        <!-- Case Studies -->
+        <h3 style="text-align: center; margin: 3rem 0 2rem 0; color: #8b5cf6;">実績</h3>
+        <div class="achievements-showcase">
+            <div class="achievement-card featured">
+                <div class="achievement-header">
+                    <span class="achievement-badge">金融</span>
+                    <h4>国際貿易融資用L/C開設業務流れのオンライン化プラットフォーム</h4>
+                </div>
+                <p>銀行・企業・貿易パートナーからなる業務流れの完全オンライン化を実現</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <span class="achievement-badge">保険</span>
+                    <h4>自動車保険書類のオンライン真偽検証プラットフォーム</h4>
+                </div>
+                <p>保険業界における書類の真偽検証を自動化するシステム</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <span class="achievement-badge">不動産</span>
+                    <h4>不動産業界向けの業務オンライン化プラットフォーム</h4>
+                </div>
+                <p>不動産業界の業務プロセスをデジタル化するソリューション</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <span class="achievement-badge">教育</span>
+                    <h4>大学向けのデジタル卒業証明書発行・真偽検証プラットフォーム</h4>
+                </div>
+                <p>大学の証明書発行業務をデジタル化し、検証機能を提供</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <span class="achievement-badge">ブロックチェーン</span>
+                    <h4>パブリックチェーンレイヤー２</h4>
+                </div>
+                <p>ブロックチェーン技術を活用したスケーラブルなソリューション</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <span class="achievement-badge">Web3</span>
+                    <h4>Web3ウォレット</h4>
+                </div>
+                <p>次世代Web3技術に対応したデジタルウォレット</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <span class="achievement-badge">フィンテック</span>
+                    <h4>Quantitative trading software</h4>
+                </div>
+                <p>高度なアルゴリズムを活用した定量取引ソフトウェア</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- News Section -->
+<section id="news" class="section">
+    <div class="container">
+        <h2>お知らせ (News)</h2>
+        <div class="news-item">
+            <h4>株式会社エーブル開業のお知らせ</h4>
+            <p class="date">2024年9月</p>
+            <p>この度、株式会社エーブルを設立いたしましたことをお知らせいたします。今後ともよろしくお願いいたします。</p>
+        </div>
+    </div>
+</section>
+
+<!-- Careers Section -->
+<section id="careers" class="section">
+    <div class="container">
+        <h2>採用情報</h2>
+        <div class="info-card" style="max-width: 800px; margin: 0 auto;">
+            <h3>採用について</h3>
+            <p>現在、優秀な人材を募集しております。詳細につきましては、お問い合わせフォームよりご連絡ください。</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section">
+    <div class="container">
+        <h2>お問い合わせ</h2>
+
+        <!-- Office Location -->
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>所在地</h3>
+                <p><strong>〒105-6922</strong><br>
+                    東京都港区虎ノ門４丁目１番１号<br>
+                    神谷町トラストタワー22階wework 122</p>
+
+                <h4 style="margin-top: 2rem; color: #8b5cf6;">最寄り駅</h4>
+                <div class="access-info">
+                    <ul>
+                        <li>東京メトロ 日比谷線 神谷町駅（4a 4b出口）直結</li>
+                        <li>東京メトロ 日比谷線 虎ノ門ヒルズ駅 徒歩5分</li>
+                        <li>東京メトロ 南北線 六本木一丁目駅 徒歩9分</li>
+                        <li>東京メトロ 銀座線 虎ノ門駅 徒歩9分</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 2rem;"><strong>メールアドレス：</strong><br>
+                    <a href="mailto:cso@abelian.info" style="color: #8b5cf6;">cso@abelian.info</a></p>
+            </div>
+
+            <div class="info-card">
+                <h3>お問い合わせフォーム</h3>
+                <form class="contact-form" style="padding: 14px; box-shadow: none;">
+                    <div class="form-group">
+                        <label for="company">会社名</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">お名前 *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">メールアドレス *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">電話番号</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">ご興味のあるサービス</label>
+                        <select id="service" name="service">
+                            <option value="">選択してください</option>
+                            <option value="ai-solution">AIソリューション</option>
+                            <option value="blockchain">ブロックチェーン</option>
+                            <option value="data-analysis">データ分析</option>
+                            <option value="consulting">コンサルティング</option>
+                            <option value="other">その他</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <div style="text-align: center; display: flex; justify-content: center;">
+                        <button type="submit" class="btn"><span>送信する</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Google Map -->
+        <div id="google-map">
+            <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d830.2732498461476!2d139.7450869318968!3d35.66480518021545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b910326470f%3A0x71742d8b3b6b7235!2sKamiyacho%20Trust%20Tower!5e0!3m2!1sja!2sjp!4v1755487279899!5m2!1sja!2sjp"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="株式会社エーブル所在地">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>&copy; 2024 株式会社エーブル (ABEL & Co., Ltd.). All rights reserved.</p>
+        <p style="font-size: 0.9rem; margin-top: 1rem;">
+            〒105-6923 東京都港区虎ノ門４丁目１番１号 神谷町トラストタワー22階wework 122
+        </p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="script.js"></script>
+</body>
+</html>
