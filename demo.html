@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式会社エーブル | 企業向けプライベートAIソリューション</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(600px circle at 20% 30%, rgba(29, 78, 216, 0.15), transparent),
+                radial-gradient(800px circle at 80% 70%, rgba(147, 51, 234, 0.15), transparent),
+                radial-gradient(400px circle at 40% 80%, rgba(59, 130, 246, 0.1), transparent);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-20px, -10px) rotate(0.5deg); }
+            50% { transform: translate(20px, 20px) rotate(-0.5deg); }
+            75% { transform: translate(-10px, 30px) rotate(0.3deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.3),
+                0 0 0 1px rgba(255,255,255,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+            border-radius: 30px;
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: containerFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes containerFloat {
+            0%, 100% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-10px) rotateX(1deg); }
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 30%, #1e40af 70%, #0c4a6e 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(45deg, transparent 49%, rgba(255,255,255,0.03) 50%, transparent 51%),
+                linear-gradient(-45deg, transparent 49%, rgba(255,255,255,0.03) 50%, transparent 51%);
+            background-size: 20px 20px;
+            animation: gridMove 30s linear infinite;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 60% 40%, rgba(16, 185, 129, 0.3) 0%, transparent 50%);
+            animation: headerGlow 15s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(20px, 20px); }
+        }
+
+        @keyframes headerGlow {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.6; }
+            33% { transform: translate(-30px, 20px) rotate(120deg); opacity: 0.8; }
+            66% { transform: translate(30px, -20px) rotate(240deg); opacity: 0.4; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-container {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(255,255,255,0.3));
+            animation: logoFloat 3s ease-in-out infinite;
+            transition: all 0.4s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1) rotate(5deg);
+            filter: drop-shadow(0 15px 40px rgba(255,255,255,0.5));
+        }
+
+        @keyframes logoFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(2deg);
+            }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 50%, #c084fc 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 20px rgba(255,255,255,0.3);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes titleGlow {
+            0% {
+                text-shadow: 0 4px 20px rgba(255,255,255,0.3);
+                transform: translateY(0px);
+            }
+            100% {
+                text-shadow: 0 8px 40px rgba(255,255,255,0.6), 0 0 60px rgba(168, 85, 247, 0.4);
+                transform: translateY(-2px);
+            }
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 0.95;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        nav {
+            background: rgba(15, 15, 35, 0.95);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav li {
+            margin: 0 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        nav a:hover::before {
+            left: 100%;
+        }
+
+        nav a:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(147, 51, 234, 0.8));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e1b4b;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 50%, #1e40af 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: sectionTitleReveal 1s ease-out;
+        }
+
+        @keyframes sectionTitleReveal {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+            border-radius: 2px;
+            animation: underlineExpand 0.8s ease-out 0.3s both;
+        }
+
+        @keyframes underlineExpand {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100px;
+            }
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.8) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow:
+                0 10px 40px rgba(0,0,0,0.1),
+                0 0 0 1px rgba(255,255,255,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.2),
+                0 0 0 1px rgba(59, 130, 246, 0.2),
+                inset 0 1px 0 rgba(255,255,255,0.4);
+        }
+
+        .service-card h3 {
+            color: #1e1b4b;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .service-card h3::before {
+            content: '🤖';
+            margin-right: 0.8rem;
+            font-size: 1.8rem;
+            animation: iconFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(5deg); }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            animation: particleFloat 15s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatAround 20s ease-in-out infinite;
+            opacity: 0.1;
+            filter: blur(1px);
+        }
+
+        @keyframes floatAround {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-50px) translateX(30px) rotate(90deg);
+            }
+            50% {
+                transform: translateY(-20px) translateX(-30px) rotate(180deg);
+            }
+            75% {
+                transform: translateY(30px) translateX(20px) rotate(270deg);
+            }
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .company-info {
+            background: linear-gradient(135deg, rgba(248,250,252,0.95) 0%, rgba(226,232,240,0.95) 100%);
+            margin: 0 -2rem;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .company-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.1) 0%, transparent 50%);
+            animation: sectionGlow 10s ease-in-out infinite;
+        }
+
+        @keyframes sectionGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .info-grid-full {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            max-width: 1000px;
+            margin: 2rem auto 0;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid,
+            .info-grid-full {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        .info-card {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.1),
+                0 0 0 1px rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 20px 40px rgba(0,0,0,0.15),
+                0 0 0 1px rgba(59, 130, 246, 0.2);
+        }
+
+        .info-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 50%, #1e40af 100%);
+            margin: 0 -2rem;
+            padding: 4rem 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(16, 185, 129, 0.2) 0%, transparent 50%);
+            animation: contactGlow 12s ease-in-out infinite;
+        }
+
+        @keyframes contactGlow {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(20px, -20px) rotate(180deg); }
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.9);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow:
+                0 15px 35px rgba(16, 185, 129, 0.4),
+                0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .map-container {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .map-placeholder {
+            background: #ecf0f1;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        #googleMap {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            filter: brightness(0.95);
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255,255,255,0.95);
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            max-width: 250px;
+            z-index: 10;
+        }
+
+        .map-overlay h4 {
+            margin: 0 0 0.5rem 0;
+            color: #1e1b4b;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .map-overlay p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem;
+            margin-top: 0;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            nav ul {
+                padding: 0 1rem;
+            }
+
+            nav li {
+                margin: 0.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .company-info,
+            .contact-form {
+                margin: 0 -1rem;
+                padding: 2rem 1rem;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(52, 152, 219, 0.1) 0%, rgba(52, 152, 219, 0.1) 100%);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .price-tag {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .about-text {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+<div class="particles" id="particles"></div>
+<div class="floating-elements">
+    <div class="floating-element" style="top: 20%; left: 10%; animation-delay: 0s;">⚡</div>
+    <div class="floating-element" style="top: 60%; left: 85%; animation-delay: 2s;">🚀</div>
+    <div class="floating-element" style="top: 80%; left: 15%; animation-delay: 4s;">💎</div>
+    <div class="floating-element" style="top: 30%; left: 75%; animation-delay: 1s;">🎯</div>
+    <div class="floating-element" style="top: 70%; left: 5%; animation-delay: 3s;">⭐</div>
+    <div class="floating-element" style="top: 15%; left: 90%; animation-delay: 5s;">🔮</div>
+</div>
+<div class="container">
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo.png" alt="株式会社エーブル ロゴ" class="logo">
+            </div>
+            <h1>株式会社エーブル</h1>
+            <p class="tagline">企業向けプライベートAIソリューションの専門企業</p>
+            <p class="subtitle">セキュアなオンプレミス環境で、御社専用のAIツールを構築・運用いたします</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">私たちについて</a></li>
+            <li><a href="#services">サービス</a></li>
+            <li><a href="#company">会社情報</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+            <li><a href="#access">アクセス</a></li>
+        </ul>
+    </nav>
+
+    <section id="about" class="section">
+        <h2>私たちについて</h2>
+        <div class="about-text">
+            <p>
+                株式会社エーブルは、企業向けプライベートAIソリューションを専門とする技術企業です。<br>
+                <span class="highlight">データの機密性を最重視</span>し、完全オンプレミス環境でのAI導入を実現します。
+            </p>
+            <p style="margin-top: 1rem;">
+                2024年9月の設立以来、スマホ決済・跨境支払・金融業・ITコンサルティングなどの幅広い業界で、<br>
+                セキュアで実用的なAIソリューションを提供しています。
+            </p>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <h2>主力サービス</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>プライベートAI構築サービス</h3>
+                <p>お客様の社内環境に<span class="highlight">完全オンプレミス型</span>のAIシステムを構築。機密データを外部に出すことなく、生成AI・画像認識AI・予測AIなどを安全にご利用いただけます。</p>
+                <ul class="feature-list">
+                    <li>オンプレミス環境での大規模言語モデル(LLM)導入</li>
+                    <li>社内文書対応RAGシステム構築</li>
+                    <li>カスタム画像認識・音声認識AI開発</li>
+                    <li>業務プロセス自動化AI構築</li>
+                </ul>
+                <p class="price-tag">詳細はお問い合わせください</p>
+            </div>
+
+            <div class="service-card">
+                <h3>AI業務効率化ツール</h3>
+                <p>汎用性の高いAIツールパッケージを提供。<span class="highlight">短期間での導入</span>で、文書作成支援・データ分析・顧客対応などの業務を大幅に効率化できます。</p>
+                <ul class="feature-list">
+                    <li>AIアシスタント（文書作成・要約・翻訳）</li>
+                    <li>インテリジェント検索システム</li>
+                    <li>データ分析・可視化ダッシュボード</li>
+                    <li>チャットボット・カスタマーサポートAI</li>
+                </ul>
+                <p class="price-tag">スモールスタート対応可能</p>
+            </div>
+
+            <div class="service-card">
+                <h3>AI導入コンサルティング</h3>
+                <p>AI導入戦略の策定から、社内人材のスキルアップまでトータルサポート。<span class="highlight">実務直結型</span>のアプローチで組織のAI活用力を向上させます。</p>
+                <ul class="feature-list">
+                    <li>AI導入戦略コンサルティング</li>
+                    <li>POC（概念実証）支援</li>
+                    <li>AI人材育成プログラム</li>
+                    <li>ROI測定・効果検証サポート</li>
+                </ul>
+                <p class="price-tag">無料相談から承ります</p>
+            </div>
+
+            <div class="service-card">
+                <h3>業界特化AIソリューション</h3>
+                <p>スマホ決済・跨境支払・金融業・ITコンサルティング・フィンテックなど、業界特有のニーズに対応した<span class="highlight">専門特化型AI</span>を開発。規制対応や業界標準にも完全準拠します。</p>
+                <ul class="feature-list">
+                    <li>スマホ決済：不正検知・リスク評価AI</li>
+                    <li>跨境支払：為替予測・コンプライアンスAI</li>
+                    <li>金融業：信用評価・投資分析AI</li>
+                    <li>ITコンサルティング：システム最適化・自動化AI</li>
+                    <li>フィンテック：自動審査・顧客分析AI</li>
+                </ul>
+                <p class="price-tag">業界経験豊富なチームが対応</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="company" class="company-info">
+        <div class="section">
+            <h2>会社情報</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>会社概要・資本情報</h3>
+                    <p><strong>会社名：</strong>株式会社エーブル</p>
+                    <p><strong>設立：</strong>2024年9月</p>
+                    <p><strong>代表取締役：</strong>リ　トウ</p>
+                    <p><strong>資本金：</strong>3,000万円</p>
+                    <p><strong>主要株主：</strong>代表取締役　リ　トウ</p>
+                    <p><strong>事業内容：</strong>AI技術開発・コンサルティング</p>
+                    <p><strong>専門領域：</strong>企業向けプライベートAI</p>
+                    <p><strong>取引銀行：</strong>三菱UFJ銀行 虎ノ門支店</p>
+                    <p><strong>顧問税理士：</strong>ベンチャーサポート税理士法人</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>所在地・連絡先</h3>
+                    <p><strong>本社：</strong><br>
+                        〒105-0001<br>
+                        東京都港区虎ノ門4-1-1<br>
+                        WeWork 神谷町トラストタワー 22F</p>
+                    <p><small style="color: #666; line-height: 1.4;">4-1-1 Toranomon, Minato-ku, Tokyo 105-0001<br>
+                        WeWork Kamiyacho Trust Tower 22F</small></p>
+                </div>
+            </div>
+
+            <div class="info-grid-full">
+                <div class="info-card">
+                    <h3>セキュリティ・コンプライアンス</h3>
+                    <p><strong>情報セキュリティ：</strong><br>
+                        社内規程整備済・定期監査実施</p>
+                    <p><strong>個人情報保護：</strong><br>
+                        プライバシーポリシー策定済</p>
+                    <p><strong>認証取得予定：</strong><br>
+                        ISO27001、プライバシーマーク</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>サービス特徴・優位性</h3>
+                    <p><strong>セキュリティ：</strong><br>
+                        完全オンプレミス対応</p>
+                    <p><strong>速度：</strong><br>
+                        迅速な導入・即日サポート</p>
+                    <p><strong>専門性：</strong><br>
+                        決済・金融分野特化</p>
+                    <p><strong>国際対応：</strong><br>
+                        多言語・多通貨対応</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-form">
+        <div class="section">
+            <h2 style="color: white;">お問い合わせ・無料相談</h2>
+            <div class="form-container">
+                <p style="text-align: center; margin-bottom: 2rem; opacity: 0.9;">
+                    AI導入に関するご相談は無料で承っております。まずはお気軽にお問い合わせください。
+                </p>
+                <form>
+                    <div class="form-group">
+                        <label for="company">会社名 *</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">ご担当者名 *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">メールアドレス *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">電話番号</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">ご興味のあるサービス</label>
+                        <select id="service" name="service">
+                            <option value="">選択してください</option>
+                            <option value="private-ai">プライベートAI構築</option>
+                            <option value="efficiency-tools">業務効率化ツール</option>
+                            <option value="consulting">コンサルティング</option>
+                            <option value="industry-solution">業界特化ソリューション</option>
+                            <option value="other">その他</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容</label>
+                        <textarea id="message" name="message" rows="5" placeholder="具体的なご要望やご質問をお書きください"></textarea>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn">送信する</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="access" class="section">
+        <h2>アクセス</h2>
+        <div class="map-container">
+            <p><strong>電車でお越しの場合：</strong><br>
+                東京メトロ日比谷線「神谷町駅」4b出口より徒歩1分<br>
+                東京メトロ銀座線「虎ノ門駅」3番出口より徒歩9分<br>
+                都営三田線「御成門駅」A5出口より徒歩11分</p>
+            <p style="margin-top: 1rem;"><strong>お車でお越しの場合：</strong><br>
+                神谷町トラストタワー地下駐車場をご利用ください</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#privacy">プライバシーポリシー</a>
+                <a href="#terms">利用規約</a>
+                <a href="#security">セキュリティポリシー</a>
+                <a href="#disclosure">情報開示</a>
+            </div>
+            <p>&copy; 2025 株式会社エーブル. All rights reserved.</p>
+            <p style="font-size: 0.9rem; color: #bdc3c7; margin-top: 0.5rem;">
+                本サイトは企業向けAIソリューションの専門企業として、日本の法規制に完全準拠したサービスを提供しております。
+            </p>
+        </div>
+    </footer>
+</div>
+
+<script>
+  // Particle System
+  class ParticleSystem {
+    constructor() {
+      this.particles = [];
+      this.container = document.getElementById('particles');
+      this.createParticles();
+      this.animate();
+    }
+
+    createParticles() {
+      for (let i = 0; i < 50; i++) {
+        this.createParticle();
+      }
+    }
+
+    createParticle() {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 15 + 's';
+      particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+
+      const colors = ['#3b82f6', '#8b5cf6', '#06b6d4', '#10b981'];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      particle.style.background = color;
+      particle.style.boxShadow = `0 0 10px ${color}`;
+
+      this.container.appendChild(particle);
+      this.particles.push(particle);
+
+      setTimeout(() => {
+        if (this.container.contains(particle)) {
+          this.container.removeChild(particle);
+          this.createParticle();
+        }
+      }, 25000);
+    }
+
+    animate() {
+      requestAnimationFrame(() => this.animate());
+    }
+  }
+
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+
+        if (entry.target.classList.contains('service-card')) {
+          const cards = entry.target.parentElement.children;
+          Array.from(cards).forEach((card, index) => {
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, index * 150);
+          });
+        }
+
+        if (entry.target.classList.contains('info-card')) {
+          const cards = entry.target.parentElement.children;
+          Array.from(cards).forEach((card, index) => {
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0) scale(1)';
+            }, index * 100);
+          });
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Mouse parallax effect
+  let mouseX = 0, mouseY = 0;
+  document.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth) * 100;
+    mouseY = (e.clientY / window.innerHeight) * 100;
+
+    document.querySelectorAll('.floating-element').forEach((el, index) => {
+      const speed = (index + 1) * 0.5;
+      const x = (mouseX - 50) * speed * 0.01;
+      const y = (mouseY - 50) * speed * 0.01;
+      el.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  });
+
+  // Enhanced form submission
+  document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
+    const btn = this.querySelector('.btn');
+    const originalText = btn.textContent;
+
+    btn.textContent = '送信中...';
+    btn.style.background = 'linear-gradient(135deg, #6b7280, #9ca3af)';
+
+    setTimeout(() => {
+      btn.textContent = '送信完了 ✓';
+      btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        
+        // Clear form fields
+        form.reset();
+        
+        alert('お問い合わせありがとうございます。2営業日以内にご連絡いたします。');
+      }, 2000);
+    }, 1500);
+  });
+
+  // Smooth scroll with offset
+  document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      const offsetTop = target.offsetTop - 100;
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Page load animations
+  window.addEventListener('load', function() {
+    // Initialize particle system
+    new ParticleSystem();
+
+    // Setup elements for scroll animation
+    document.querySelectorAll('.service-card, .info-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(50px)';
+      el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+      observer.observe(el);
+    });
+
+    // Header animation
+    const headerContent = document.querySelector('.header-content');
+    const logo = document.querySelector('.logo');
+
+    headerContent.style.opacity = '0';
+    headerContent.style.transform = 'translateY(30px)';
+    logo.style.opacity = '0';
+    logo.style.transform = 'translateY(-50px) scale(0.8)';
+
+    setTimeout(() => {
+      logo.style.transition = 'all 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+      logo.style.opacity = '1';
+      logo.style.transform = 'translateY(0) scale(1)';
+    }, 100);
+
+    setTimeout(() => {
+      headerContent.style.transition = 'all 1s ease-out';
+      headerContent.style.opacity = '1';
+      headerContent.style.transform = 'translateY(0)';
+    }, 400);
+
+    // Floating elements animation
+    document.querySelectorAll('.floating-element').forEach((el, index) => {
+      setTimeout(() => {
+        el.style.opacity = '0.1';
+        el.style.animation = `floatAround ${20 + index * 2}s ease-in-out infinite`;
+      }, index * 1000);
+    });
+  });
+
+  // Dynamic background scroll effect
+  let ticking = false;
+
+  function updateBackground() {
+    const scrolled = window.pageYOffset;
+    const parallax = scrolled * 0.5;
+
+    document.body.style.backgroundPosition = `center ${parallax}px`;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateBackground);
+      ticking = true;
+    }
+  });
+
+  // Add click ripple effect to buttons
+  document.querySelectorAll('.btn, .service-card, nav a').forEach(el => {
+    el.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+
+      ripple.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        left: ${x}px;
+        top: ${y}px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: scale(0);
+        animation: ripple 0.6s ease-out;
+        pointer-events: none;
+        z-index: 1000;
+      `;
+
+      if (!this.style.position || this.style.position === 'static') {
+        this.style.position = 'relative';
+      }
+
+      this.appendChild(ripple);
+
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
+
+  // Add CSS for ripple animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes ripple {
+      to {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+// Google Maps initialization
+function initMap() {
+  // Company location coordinates (Kamiyacho Trust Tower)
+  const companyLocation = {
+    lat: 35.6684694,
+    lng: 139.7542556
+  };
+
+  // Create map
+  const map = new google.maps.Map(document.getElementById('googleMap'), {
+    zoom: 16,
+    center: companyLocation,
+    styles: [
+      {
+        featureType: 'all',
+        elementType: 'geometry',
+        stylers: [{ color: '#f5f5f5' }]
+      },
+      {
+        featureType: 'all',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#616161' }]
+      },
+      {
+        featureType: 'all',
+        elementType: 'labels.text.stroke',
+        stylers: [{ color: '#f5f5f5' }]
+      },
+      {
+        featureType: 'administrative.land_parcel',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#bdbdbd' }]
+      },
+      {
+        featureType: 'poi',
+        elementType: 'geometry',
+        stylers: [{ color: '#eeeeee' }]
+      },
+      {
+        featureType: 'poi',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#757575' }]
+      },
+      {
+        featureType: 'poi.park',
+        elementType: 'geometry',
+        stylers: [{ color: '#e5e5e5' }]
+      },
+      {
+        featureType: 'poi.park',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#9e9e9e' }]
+      },
+      {
+        featureType: 'road',
+        elementType: 'geometry',
+        stylers: [{ color: '#ffffff' }]
+      },
+      {
+        featureType: 'road.arterial',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#757575' }]
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'geometry',
+        stylers: [{ color: '#dadada' }]
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#616161' }]
+      },
+      {
+        featureType: 'road.local',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#9e9e9e' }]
+      },
+      {
+        featureType: 'transit.line',
+        elementType: 'geometry',
+        stylers: [{ color: '#e5e5e5' }]
+      },
+      {
+        featureType: 'transit.station',
+        elementType: 'geometry',
+        stylers: [{ color: '#eeeeee' }]
+      },
+      {
+        featureType: 'water',
+        elementType: 'geometry',
+        stylers: [{ color: '#c9c9c9' }]
+      },
+      {
+        featureType: 'water',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#9e9e9e' }]
+      }
+    ],
+    mapTypeControl: true,
+    streetViewControl: true,
+    fullscreenControl: true,
+    zoomControl: true
+  });
+
+  // Custom marker icon
+  const markerIcon = {
+    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+      <svg width="40" height="52" viewBox="0 0 40 52" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 0C8.954 0 0 8.954 0 20c0 14.5 20 32 20 32s20-17.5 20-32C40 8.954 31.046 0 20 0z" fill="#3b82f6"/>
+        <circle cx="20" cy="20" r="8" fill="white"/>
+        <circle cx="20" cy="20" r="4" fill="#3b82f6"/>
+      </svg>
+    `),
+    scaledSize: new google.maps.Size(40, 52),
+    anchor: new google.maps.Point(20, 52)
+  };
+
+  // Add marker
+  const marker = new google.maps.Marker({
+    position: companyLocation,
+    map: map,
+    icon: markerIcon,
+    title: '株式会社エーブル',
+    animation: google.maps.Animation.DROP
+  });
+
+  // Info window
+  const infoWindow = new google.maps.InfoWindow({
+    content: `
+      <div style="padding: 10px; font-family: 'Inter', sans-serif; min-width: 200px;">
+        <h3 style="margin: 0 0 8px 0; color: #1e1b4b; font-size: 16px;">株式会社エーブル</h3>
+        <p style="margin: 0 0 5px 0; font-size: 14px; color: #666;">東京都港区虎ノ門4-1-1</p>
+        <p style="margin: 0 0 5px 0; font-size: 14px; color: #666;">WeWork 神谷町トラストタワー 22F</p>
+        <p style="margin: 0; font-size: 12px; color: #999;">神谷町駅から徒歩1分</p>
+      </div>
+    `
+  });
+
+  // Add click event to marker
+  marker.addListener('click', () => {
+    infoWindow.open(map, marker);
+  });
+
+  // Add map animation
+  setTimeout(() => {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+    setTimeout(() => {
+      marker.setAnimation(null);
+    }, 2000);
+  }, 1000);
+}
+
+// Fallback if Google Maps fails to load
+window.addEventListener('load', function() {
+  setTimeout(() => {
+    if (typeof google === 'undefined' || !google.maps) {
+      const mapContainer = document.getElementById('googleMap');
+      if (mapContainer && mapContainer.innerHTML === '') {
+        mapContainer.innerHTML = `
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: #666;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🗺️</div>
+            <div style="font-size: 1.1rem; font-weight: 500;">地図を読み込み中...</div>
+            <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.7;">神谷町駅から徒歩1分</div>
+          </div>
+        `;
+      }
+    }
+  }, 3000);
+});
+</script>
+</body>
+</html>
