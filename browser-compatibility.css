@@ -1,0 +1,103 @@
+/* Browser Compatibility CSS - Minimal fixes after normalize.css */
+
+/* Safari optimizations */
+@supports (-webkit-backdrop-filter: blur(1px)) {
+    /* Hardware acceleration for smooth animations */
+    .container,
+    .language-fab,
+    .btn,
+    .info-card,
+    .service-card,
+    .product-card,
+    .achievement-card {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    /* Safari background fixes */
+    body {
+        background: linear-gradient(45deg, #0a0b1e 0%, #1a1b3a 25%, #2d1b69 50%, #1e1b3c 75%, #0f0f23 100%) !important;
+        background-size: 400% 400% !important;
+        background-attachment: fixed !important;
+    }
+    
+    .container {
+        background: linear-gradient(135deg, rgba(15, 15, 35, 0.4) 0%, rgba(0, 212, 255, 0.15) 50%, rgba(139, 92, 246, 0.25) 100%) !important;
+        -webkit-backdrop-filter: blur(40px) !important;
+        backdrop-filter: blur(40px) !important;
+    }
+    
+    nav {
+        background: rgba(15, 15, 35, 0.95) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        backdrop-filter: blur(20px) !important;
+    }
+    
+    .language-switcher {
+        background: linear-gradient(135deg, rgba(15, 15, 35, 0.8) 0%, rgba(0, 212, 255, 0.3) 100%) !important;
+        -webkit-backdrop-filter: blur(15px) !important;
+        backdrop-filter: blur(15px) !important;
+    }
+    
+    .info-card, .service-card, .product-card, .achievement-card {
+        background: rgba(15, 15, 35, 0.7) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        backdrop-filter: blur(20px) !important;
+    }
+    
+    /* Essential animation optimizations only */
+    .btn, .info-card, .service-card, .product-card {
+        will-change: transform, opacity;
+    }
+}
+
+/* Backdrop-filter fallback */
+@supports not (backdrop-filter: blur(1px)) and not (-webkit-backdrop-filter: blur(1px)) {
+    .container {
+        background: rgba(15, 15, 35, 0.9) !important;
+        border: 2px solid rgba(0, 212, 255, 0.3);
+    }
+    
+    .info-card, .service-card, .product-card, .achievement-card {
+        background: rgba(15, 15, 35, 0.8) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Touch device optimizations */
+@media (pointer: coarse) {
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .btn:hover, .info-card:hover {
+        transform: translateY(-2px) !important;
+    }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .floating-shape, .particle {
+        display: none !important;
+    }
+}
+
+/* Chrome layout fixes */
+@supports (-webkit-appearance: none) {
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    
+    main {
+        flex: 1 0 auto;
+    }
+    
+    footer {
+        flex-shrink: 0;
+        margin-top: auto;
+    }
+}

@@ -1,0 +1,5 @@
+/* Safari Animation Smoothing - Minimal after normalize.css */
+
+@supports (-webkit-backdrop-filter: blur(1px)) {
+    /* Safari hardware acceleration for smooth animations */
+}

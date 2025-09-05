@@ -29,7 +29,12 @@
 <!--    <link rel="apple-touch-icon" href="assets/logo-b.png">-->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@200;400;600&display=swap"
           rel="stylesheet">
+    <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="browser-compatibility.css">
+    <link rel="stylesheet" href="performance-optimizations.css">
+    <link rel="stylesheet" href="safari-animation-fix.css">
+    <link rel="stylesheet" href="firefox-compatibility-fix.css">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -69,17 +74,13 @@
     </script>
 </head>
 <body>
+
 <!-- Floating particles and effects -->
-<div class="glow-orb"></div>
-<div class="glow-orb"></div>
-<div class="glow-orb"></div>
 
 <!-- Floating background shapes -->
 <div class="floating-shapes" id="floatingShapes"></div>
 
-<!-- Floating background dots -->
-<div class="floating-dots" id="floatingDots"></div>
-
+<main>
 <!-- Header -->
 <header>
     <div class="container">
@@ -102,19 +103,36 @@
             <li><a href="#careers" data-i18n="nav.careers">採用情報</a></li>
             <li><a href="#contact" data-i18n="nav.contact">お問合せ</a></li>
         </ul>
-        <div class="language-switcher">
+        
+        <!-- 导航栏语言切换器 -->
+        <div class="language-switcher" id="languageSwitcher">
+            <div class="language-current" id="languageToggle">
+                <span id="currentLanguage">日本語</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 10l5 5 5-5z"/>
+                </svg>
+            </div>
             <div class="language-dropdown" id="languageDropdown">
-                <div class="language-current" id="currentLang">
-                    <span id="currentLangText">日本語</span>
+                <div class="language-option active" data-lang="ja">
+                    <span class="lang-name">日本語</span>
                 </div>
-                <div class="language-options" id="languageOptions">
-                    <button class="language-option active" data-lang="ja">日本語</button>
-                    <button class="language-option" data-lang="en">English</button>
-                    <button class="language-option" data-lang="zh-tw">繁體中文</button>
-                    <button class="language-option" data-lang="ko">한국어</button>
-                    <button class="language-option" data-lang="ms">Bahasa Malaysia</button>
-                    <button class="language-option" data-lang="th">ไทย</button>
-                    <button class="language-option" data-lang="id">Bahasa Indonesia</button>
+                <div class="language-option" data-lang="en">
+                    <span class="lang-name">English</span>
+                </div>
+                <div class="language-option" data-lang="zh-tw">
+                    <span class="lang-name">繁體中文</span>
+                </div>
+                <div class="language-option" data-lang="ko">
+                    <span class="lang-name">한국어</span>
+                </div>
+                <div class="language-option" data-lang="ms">
+                    <span class="lang-name">Bahasa Malaysia</span>
+                </div>
+                <div class="language-option" data-lang="th">
+                    <span class="lang-name">ไทย</span>
+                </div>
+                <div class="language-option" data-lang="id">
+                    <span class="lang-name">Bahasa Indonesia</span>
                 </div>
             </div>
         </div>
@@ -128,34 +146,34 @@
 
         <!-- CEO Message -->
         <div class="ceo-message fade-in-scale">
-            <h3>創業者メッセージ（Company Vision）</h3>
-            <p>私たちは革新的な技術ソリューションを通じて、企業の成長と社会の発展に貢献します。</p>
+            <h3 data-i18n="company.ceoMessage">創業者メッセージ（Company Vision）</h3>
+            <p data-i18n="company.ceoText">私たちは革新的な技術ソリューションを通じて、企業の成長と社会の発展に貢献します。</p>
             <p class="ceo-name">Duncan Wong</p>
         </div>
 
         <!-- Company Overview -->
         <div class="info-grid">
             <div class="info-card fade-in-left">
-                <h3>会社概要</h3>
-                <p><strong>会社名：</strong>株式会社エーブル（ABEL & Co., Ltd.)</p>
-                <p><strong>設立：</strong>2024年9月</p>
-                <p><strong>資本金：</strong>3,000万円</p>
-                <p><strong>代表者：</strong>リ　トウ</p>
-                <p><strong>所在地：</strong>東京都港区虎ノ門４丁目1-1神谷町トラストタワーwework 22-122</p>
-                <p><strong>株主：</strong>Geronimo Consulting Limited</p>
-                <p><strong>取引銀行：</strong>三菱UFJ銀行</p>
+                <h3 data-i18n="company.overview">会社概要</h3>
+                <p><strong data-i18n="company.companyName">会社名：</strong><span data-i18n="company.companyNameValue">株式会社エーブル（ABEL & Co., Ltd.)</span></p>
+                <p><strong data-i18n="company.established">設立：</strong><span data-i18n="company.establishedValue">2024年9月</span></p>
+                <p><strong data-i18n="company.capital">資本金：</strong><span data-i18n="company.capitalValue">3,000万円</span></p>
+                <p><strong data-i18n="company.representative">代表者：</strong><span data-i18n="company.representativeValue">リ　トウ</span></p>
+                <p><strong data-i18n="company.address">所在地：</strong><span data-i18n="company.addressValue">東京都港区虎ノ門４丁目1-1神谷町トラストタワーwework 22-122</span></p>
+                <p><strong data-i18n="company.shareholder">株主：</strong><span data-i18n="company.shareholderValue">Geronimo Consulting Limited</span></p>
+                <p><strong data-i18n="company.bank">取引銀行：</strong><span data-i18n="company.bankValue">三菱UFJ銀行</span></p>
             </div>
 
             <div class="info-card fade-in-right">
-                <h3>目的・事業内容</h3>
+                <h3 data-i18n="company.purpose">目的・事業内容</h3>
                 <ul>
-                    <li>ソフトウェアの企画、設計、開発、販売、輸出入、点検及び保守</li>
-                    <li>ITに関する企画、開発及びコンサルティング</li>
-                    <li>情報システムソリューション業務</li>
-                    <li>情報システムのインテグレーションサービス</li>
-                    <li>データストレージの構築、データ分析及びデータ処理に関するコンサルティング業務</li>
-                    <li>生成AIの構築、AIを利用するシステム、アプリケーションの企画、設計、開発、運営、管理及び提供</li>
-                    <li>前各号に附帯又は関連する一切の事業</li>
+                    <li data-i18n="company.business1">ソフトウェアの企画、設計、開発、販売、輸出入、点検及び保守</li>
+                    <li data-i18n="company.business2">ITに関する企画、開発及びコンサルティング</li>
+                    <li data-i18n="company.business3">情報システムソリューション業務</li>
+                    <li data-i18n="company.business4">情報システムのインテグレーションサービス</li>
+                    <li data-i18n="company.business5">データストレージの構築、データ分析及びデータ処理に関するコンサルティング業務</li>
+                    <li data-i18n="company.business6">生成AIの構築、AIを利用するシステム、アプリケーションの企画、設計、開発、運営、管理及び提供</li>
+                    <li data-i18n="company.business7">前各号に附帯又は関連する一切の事業</li>
                 </ul>
             </div>
         </div>
@@ -170,8 +188,8 @@
         <!-- Services -->
         <div class="services-grid">
             <div class="service-card fade-in-up">
-                <h3>サービス</h3>
-                <p>
+                <h3 data-i18n="business.service">サービス</h3>
+                <p data-i18n="business.serviceDesc">
                     Web3、銀行、保険、国際貿易、不動産など、複数の業界向け、A(AI)、B(ブロックチェーン)、C(クリプトグラフィー)、D(データ）、E(エコシステム）などの基盤技術に基づいたトータルソリューションのコンサルティング及び委託開発をメインにする。</p>
             </div>
         </div>
@@ -180,28 +198,28 @@
         <h3 style="text-align: center; margin: 3rem 0 2rem 0; color: #8b5cf6;">主な製品</h3>
         <div class="products-grid">
             <div class="product-card fade-in-up">
-                <h4>エッジAIモデルのローカライズされたアプリケーション</h4>
-                <p>クライアント環境に最適化されたエッジAIソリューション</p>
+                <h4 data-i18n="products.edgeAI">エッジAIモデルのローカライズされたアプリケーション</h4>
+                <p data-i18n="products.edgeAIDesc">クライアント環境に最適化されたエッジAIソリューション</p>
             </div>
             <div class="product-card fade-in-up">
-                <h4>カスタマイズされたエッジAI製品</h4>
-                <p>お客様のニーズに合わせた専用AI製品</p>
+                <h4 data-i18n="products.customAI">カスタマイズされたエッジAI製品</h4>
+                <p data-i18n="products.customAIDesc">お客様のニーズに合わせた専用AI製品</p>
             </div>
             <div class="product-card fade-in-up">
-                <h4>AIアプリケーションのトレーニングコース</h4>
-                <p>AI導入・運用に関する包括的な教育プログラム</p>
+                <h4 data-i18n="products.aiTraining">AIアプリケーションのトレーニングコース</h4>
+                <p data-i18n="products.aiTrainingDesc">AI導入・運用に関する包括的な教育プログラム</p>
             </div>
             <div class="product-card fade-in-up">
-                <h4>マルチプラットフォーム向けのカスタマイズされたアプリ</h4>
-                <p>様々なプラットフォームに対応したアプリ開発</p>
+                <h4 data-i18n="products.multiPlatform">マルチプラットフォーム向けのカスタマイズされたアプリ</h4>
+                <p data-i18n="products.multiPlatformDesc">様々なプラットフォームに対応したアプリ開発</p>
             </div>
             <div class="product-card fade-in-up">
-                <h4>データ分析サービス</h4>
-                <p>高度なデータ分析とビジネスインサイトの提供</p>
+                <h4 data-i18n="products.dataAnalysis">データ分析サービス</h4>
+                <p data-i18n="products.dataAnalysisDesc">高度なデータ分析とビジネスインサイトの提供</p>
             </div>
             <div class="product-card fade-in-up">
-                <h4>定量取引プラットフォーム</h4>
-                <p>金融市場向けの高度な定量取引システム</p>
+                <h4 data-i18n="products.quantPlatform">定量取引プラットフォーム</h4>
+                <p data-i18n="products.quantPlatformDesc">金融市場向けの高度な定量取引システム</p>
             </div>
         </div>
 
@@ -211,57 +229,57 @@
             <div class="achievement-card featured">
                 <div class="achievement-header">
                     <span class="achievement-badge">金融</span>
-                    <h4>国際貿易融資用L/C開設業務流れのオンライン化プラットフォーム</h4>
+                    <h4 data-i18n="achievements.lcPlatform">国際貿易融資用L/C開設業務流れのオンライン化プラットフォーム</h4>
                 </div>
-                <p>銀行・企業・貿易パートナーからなる業務流れの完全オンライン化を実現</p>
+                <p data-i18n="achievements.lcPlatformDesc">銀行・企業・貿易パートナーからなる業務流れの完全オンライン化を実現</p>
             </div>
 
             <div class="achievement-card">
                 <div class="achievement-header">
                     <span class="achievement-badge">保険</span>
-                    <h4>自動車保険書類のオンライン真偽検証プラットフォーム</h4>
+                    <h4 data-i18n="achievements.insuranceVerify">自動車保険書類のオンライン真偽検証プラットフォーム</h4>
                 </div>
-                <p>保険業界における書類の真偽検証を自動化するシステム</p>
+                <p data-i18n="achievements.insuranceVerifyDesc">保険業界における書類の真偽検証を自動化するシステム</p>
             </div>
 
             <div class="achievement-card">
                 <div class="achievement-header">
                     <span class="achievement-badge">不動産</span>
-                    <h4>不動産業界向けの業務オンライン化プラットフォーム</h4>
+                    <h4 data-i18n="achievements.realEstate">不動産業界向けの業務オンライン化プラットフォーム</h4>
                 </div>
-                <p>不動産業界の業務プロセスをデジタル化するソリューション</p>
+                <p data-i18n="achievements.realEstateDesc">不動産業界の業務プロセスをデジタル化するソリューション</p>
             </div>
 
             <div class="achievement-card">
                 <div class="achievement-header">
                     <span class="achievement-badge">教育</span>
-                    <h4>大学向けのデジタル卒業証明書発行・真偽検証プラットフォーム</h4>
+                    <h4 data-i18n="achievements.education">大学向けのデジタル卒業証明書発行・真偽検証プラットフォーム</h4>
                 </div>
-                <p>大学の証明書発行業務をデジタル化し、検証機能を提供</p>
+                <p data-i18n="achievements.educationDesc">大学の証明書発行業務をデジタル化し、検証機能を提供</p>
             </div>
 
             <div class="achievement-card">
                 <div class="achievement-header">
                     <span class="achievement-badge">ブロックチェーン</span>
-                    <h4>パブリックチェーンレイヤー２</h4>
+                    <h4 data-i18n="achievements.blockchain">パブリックチェーンレイヤー２</h4>
                 </div>
-                <p>ブロックチェーン技術を活用したスケーラブルなソリューション</p>
+                <p data-i18n="achievements.blockchainDesc">ブロックチェーン技術を活用したスケーラブルなソリューション</p>
             </div>
 
             <div class="achievement-card">
                 <div class="achievement-header">
                     <span class="achievement-badge">Web3</span>
-                    <h4>Web3ウォレット</h4>
+                    <h4 data-i18n="achievements.web3Wallet">Web3ウォレット</h4>
                 </div>
-                <p>次世代Web3技術に対応したデジタルウォレット</p>
+                <p data-i18n="achievements.web3WalletDesc">次世代Web3技術に対応したデジタルウォレット</p>
             </div>
 
             <div class="achievement-card">
                 <div class="achievement-header">
                     <span class="achievement-badge">フィンテック</span>
-                    <h4>Quantitative trading software</h4>
+                    <h4 data-i18n="business.quantTrading">定量取引ソフトウェア</h4>
                 </div>
-                <p>高度なアルゴリズムを活用した定量取引ソフトウェア</p>
+                <p data-i18n="achievements.quantTradingDesc">高度なアルゴリズムを活用した定量取引ソフトウェア</p>
             </div>
         </div>
     </div>
@@ -272,9 +290,9 @@
     <div class="container">
         <h2>お知らせ (News)</h2>
         <div class="news-item">
-            <h4>株式会社エーブル開業のお知らせ</h4>
-            <p class="date">2024年9月</p>
-            <p>この度、株式会社エーブルを設立いたしましたことをお知らせいたします。今後ともよろしくお願いいたします。</p>
+            <h4 data-i18n="news.openingTitle">株式会社エーブル開業のお知らせ</h4>
+            <p class="date" data-i18n="news.openingDate">2024年9月</p>
+            <p data-i18n="news.openingContent">この度、株式会社エーブルを設立いたしましたことをお知らせいたします。今後ともよろしくお願いいたします。</p>
         </div>
     </div>
 </section>
@@ -284,8 +302,8 @@
     <div class="container">
         <h2>採用情報</h2>
         <div class="info-card" style="max-width: 800px; margin: 0 auto;">
-            <h3>採用について</h3>
-            <p>現在、優秀な人材を募集しております。詳細につきましては、お問い合わせフォームよりご連絡ください。</p>
+            <h3 data-i18n="careers.aboutTitle">採用について</h3>
+            <p data-i18n="careers.content">現在、優秀な人材を募集しております。詳細につきましては、お問い合わせフォームよりご連絡ください。</p>
         </div>
     </div>
 </section>
@@ -298,67 +316,67 @@
         <!-- Office Location -->
         <div class="info-grid">
             <div class="info-card">
-                <h3>所在地</h3>
-                <p><strong>〒105-6922</strong><br>
-                    東京都港区虎ノ門４丁目１番１号<br>
-                    神谷町トラストタワー22階wework 122</p>
+                <h3 data-i18n="contact.location">所在地</h3>
+                <p><strong data-i18n="contact.postalCode">〒105-6922</strong><br>
+                    <span data-i18n="contact.addressLine1">東京都港区虎ノ門４丁目１番１号</span><br>
+                    <span data-i18n="contact.addressLine2">神谷町トラストタワー22階wework 122</span></p>
 
-                <h4 style="margin-top: 2rem; color: #8b5cf6;">最寄り駅</h4>
+                <h4 style="margin-top: 2rem; color: #8b5cf6;" data-i18n="contact.nearestStation">最寄り駅</h4>
                 <div class="access-info">
                     <ul>
-                        <li>東京メトロ 日比谷線 神谷町駅（4a 4b出口）直結</li>
-                        <li>東京メトロ 日比谷線 虎ノ門ヒルズ駅 徒歩5分</li>
-                        <li>東京メトロ 南北線 六本木一丁目駅 徒歩9分</li>
-                        <li>東京メトロ 銀座線 虎ノ門駅 徒歩9分</li>
+                        <li data-i18n="contact.station1">東京メトロ 日比谷線 神谷町駅（4a 4b出口）直結</li>
+                        <li data-i18n="contact.station2">東京メトロ 日比谷線 虎ノ門ヒルズ駅 徒歩5分</li>
+                        <li data-i18n="contact.station3">東京メトロ 南北線 六本木一丁目駅 徒歩9分</li>
+                        <li data-i18n="contact.station4">東京メトロ 銀座線 虎ノ門駅 徒歩9分</li>
                     </ul>
                 </div>
 
-                <p style="margin-top: 2rem;"><strong>メールアドレス：</strong><br>
+                <p style="margin-top: 2rem;"><strong data-i18n="contact.emailLabel">メールアドレス：</strong><br>
                     <a href="mailto:cso@abelian.info" style="color: #8b5cf6;">cso@abelian.info</a></p>
             </div>
 
             <div class="info-card">
-                <h3>お問い合わせフォーム</h3>
+                <h3 data-i18n="contact.form">お問い合わせフォーム</h3>
                 <form class="contact-form" style="padding: 14px; box-shadow: none;">
                     <div class="form-group">
-                        <label for="company">会社名</label>
+                        <label for="company" data-i18n="contact.companyLabel">会社名</label>
                         <input type="text" id="company" name="company">
                     </div>
 
                     <div class="form-group">
-                        <label for="name">お名前 *</label>
+                        <label for="name" data-i18n="contact.nameLabel">お名前 *</label>
                         <input type="text" id="name" name="name" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">メールアドレス *</label>
+                        <label for="email" data-i18n="contact.emailFieldLabel">メールアドレス *</label>
                         <input type="email" id="email" name="email" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">電話番号</label>
+                        <label for="phone" data-i18n="contact.phoneLabel">電話番号</label>
                         <input type="tel" id="phone" name="phone">
                     </div>
 
                     <div class="form-group">
-                        <label for="service">ご興味のあるサービス</label>
+                        <label for="service" data-i18n="contact.serviceLabel">ご興味のあるサービス</label>
                         <select id="service" name="service">
-                            <option value="">選択してください</option>
-                            <option value="ai-solution">AIソリューション</option>
-                            <option value="blockchain">ブロックチェーン</option>
-                            <option value="data-analysis">データ分析</option>
-                            <option value="consulting">コンサルティング</option>
-                            <option value="other">その他</option>
+                            <option value="" data-i18n="contact.selectOption">選択してください</option>
+                            <option value="ai-solution" data-i18n="contact.aiSolution">AIソリューション</option>
+                            <option value="blockchain" data-i18n="contact.blockchain">ブロックチェーン</option>
+                            <option value="data-analysis" data-i18n="contact.dataAnalysis">データ分析</option>
+                            <option value="consulting" data-i18n="contact.consulting">コンサルティング</option>
+                            <option value="other" data-i18n="contact.other">その他</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="message">お問い合わせ内容 *</label>
+                        <label for="message" data-i18n="contact.messageLabel">お問い合わせ内容 *</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
 
                     <div style="text-align: center; display: flex; justify-content: center;">
-                        <button type="submit" class="btn"><span>送信する</span></button>
+                        <button type="submit" class="btn"><span data-i18n="contact.submit">送信する</span></button>
                     </div>
                 </form>
             </div>
@@ -377,6 +395,7 @@
         </div>
     </div>
 </section>
+</main>
 
 <!-- Footer -->
 <footer>
@@ -389,6 +408,10 @@
 </footer>
 
 <!-- Scripts -->
+<script src="js/translations.js"></script>
+<script src="js/language-switcher.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/interactions.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

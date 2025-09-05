@@ -1,0 +1,77 @@
+/* Performance Optimizations - After normalize.css */
+
+/* Hardware acceleration for animated elements */
+.btn,
+.info-card,
+.service-card,
+.product-card,
+.achievement-card,
+.container,
+.floating-shape,
+.particle {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Optimize keyframe animations */
+@keyframes gradientMorph {
+    0%, 100% { 
+        background-position: 0% 50%; 
+        transform: translateZ(0);
+    }
+    25% { 
+        background-position: 100% 50%; 
+        transform: translateZ(0);
+    }
+    50% { 
+        background-position: 50% 100%; 
+        transform: translateZ(0);
+    }
+    75% { 
+        background-position: 50% 0%; 
+        transform: translateZ(0);
+    }
+}
+
+@keyframes borderFlow {
+    0%, 100% { 
+        background-position: 0% 50%, 0% 50%; 
+        transform: translateZ(0);
+    }
+    50% { 
+        background-position: 0% 50%, 100% 50%; 
+        transform: translateZ(0);
+    }
+}
+
+@keyframes containerFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotateX(0deg) translateZ(0); 
+    }
+    50% { 
+        transform: translateY(-10px) rotateX(1deg) translateZ(0); 
+    }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 768px), (pointer: coarse) {
+    .floating-shape,
+    .particle {
+        display: none !important;
+    }
+    
+    .btn:hover,
+    .info-card:hover {
+        transform: translateY(-2px) translateZ(0) !important;
+    }
+}
