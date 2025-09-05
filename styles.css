@@ -296,6 +296,12 @@ nav {
     transition: all 0.3s ease;
 }
 
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 nav ul {
     display: flex;
     justify-content: center;
@@ -345,15 +351,14 @@ nav a:hover {
 
 /* Language Switcher */
 .language-switcher {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    position: relative;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
     backdrop-filter: blur(15px);
-    padding: 0.8rem;
-    border-radius: 15px;
+    padding: 0.5rem 0.8rem;
+    border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .language-dropdown {
@@ -403,7 +408,7 @@ nav a:hover {
     transform: translateY(-10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    z-index: 1001;
 }
 
 .language-dropdown.active .language-options {
