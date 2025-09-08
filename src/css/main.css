@@ -1,0 +1,27 @@
+/* Main CSS file - imports all component-based CSS files */
+
+/* Import order is important for proper cascading */
+
+/* 1. Base styles - foundational styles, resets, typography */
+@import './components/base.css';
+
+/* 2. Animations - keyframes and transitions used throughout */
+@import './components/animations.css';
+
+/* 3. Layout - containers, grids, sections */
+@import './components/layout.css';
+
+/* 4. Navigation - header and navigation styles */
+@import './components/navigation.css';
+
+/* 5. Language switcher - specific language switching component */
+@import './components/language-switcher.css';
+
+/* 6. Forms - form elements and styling */
+@import './components/forms.css';
+
+/* 7. Buttons - button components and variants */
+@import './components/buttons.css';
+
+/* 8. Cards - all card-based components */
+@import './components/cards.css';

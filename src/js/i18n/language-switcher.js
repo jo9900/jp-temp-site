@@ -94,9 +94,6 @@ class LanguageSwitcher {
     // Update all elements with data-i18n attributes
     this.updateAllDataI18nElements(langData);
 
-    // Update products and achievements titles (for compatibility with existing structure)
-    this.updateProductsAndAchievementsTitle(langData);
-
     // Update current language display in FAB
     const currentLanguage = document.getElementById('currentLanguage');
     if (currentLanguage) {
@@ -136,19 +133,6 @@ class LanguageSwitcher {
     });
   }
 
-  updateProductsAndAchievementsTitle(langData) {
-    // Update products title
-    const productsTitle = document.querySelector('h3[style*="color: #8b5cf6"]');
-    if (productsTitle && productsTitle.textContent.includes('製品')) {
-      productsTitle.textContent = langData.business.products;
-    }
-
-    // Update achievements title
-    const achievementsTitle = document.querySelector('h3[style*="color: #8b5cf6"]:nth-of-type(2)');
-    if (achievementsTitle && achievementsTitle.textContent.includes('実績')) {
-      achievementsTitle.textContent = langData.business.achievements;
-    }
-  }
 
   updateActiveLanguageOption(lang) {
     document.querySelectorAll('.language-option').forEach(option => {

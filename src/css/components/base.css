@@ -1,0 +1,234 @@
+/* Browser compatibility fixes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 212, 255, 0.5) rgba(15, 15, 35, 0.3);
+}
+
+/* Webkit scrollbar for Safari and Chrome */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(15, 15, 35, 0.3);
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgba(0, 212, 255, 0.5);
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 212, 255, 0.7);
+}
+
+/* Body styles and global typography */
+body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    line-height: 1.6;
+    color: #e2e8f0;
+    background: linear-gradient(45deg, #0a0b1e 0%, #1a1b3a 25%, #2d1b69 50%, #1e1b3c 75%, #0f0f23 100%);
+    background-size: 400% 400%;
+    -webkit-animation: gradientMorph 25s ease-in-out infinite;
+    -moz-animation: gradientMorph 25s ease-in-out infinite;
+    animation: gradientMorph 25s ease-in-out infinite;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    /* Firefox specific fixes */
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent font rendering issues in Firefox */
+    text-rendering: optimizeLegibility;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(600px circle at 20% 30%, rgba(29, 78, 216, 0.15), transparent),
+    radial-gradient(800px circle at 80% 70%, rgba(139, 92, 246, 0.15), transparent),
+    radial-gradient(400px circle at 40% 80%, rgba(0, 212, 255, 0.1), transparent);
+    z-index: -2;
+    animation: backgroundShift 20s ease-in-out infinite;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="mesh" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0,0 L50,50 L0,100 L50,50 L100,0 L50,50 L100,100 L50,50 Z" fill="none" stroke="rgba(59,130,246,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23mesh)"/></svg>');
+    z-index: -1;
+    animation: meshMove 30s linear infinite;
+    opacity: 0.3;
+}
+
+/* Typography */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.tagline {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Floating Particles - optimized version */
+.particle {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: linear-gradient(45deg, #00d4ff, #8b5cf6);
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particleFloat 25s linear infinite;
+    z-index: -1;
+    /* Hardware acceleration */
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    contain: layout style paint;
+}
+
+/* Floating Background Shapes - performance optimized version */
+.floating-shapes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -3;
+    overflow: hidden;
+}
+
+.floating-shape {
+    position: absolute;
+    opacity: 0.1;
+    animation: floatShape 30s infinite linear;
+    /* Hardware acceleration */
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    contain: layout style paint;
+}
+
+.floating-shape.square {
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    transform: rotate(45deg);
+}
+
+.floating-shape.triangle {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 26px solid rgba(16, 185, 129, 0.3);
+}
+
+.floating-shape.diamond {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.2));
+    transform: rotate(45deg);
+    border-radius: 3px;
+}
+
+.floating-shape.hexagon {
+    width: 20px;
+    height: 11.55px;
+    background: rgba(99, 102, 241, 0.3);
+    position: relative;
+}
+
+.floating-shape.hexagon:before,
+.floating-shape.hexagon:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.floating-shape.hexagon:before {
+    bottom: 100%;
+    border-bottom: 5.77px solid rgba(99, 102, 241, 0.3);
+}
+
+.floating-shape.hexagon:after {
+    top: 100%;
+    border-top: 5.77px solid rgba(99, 102, 241, 0.3);
+}
+
+/* Scroll-triggered fade-in animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-up.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-left.animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-right.animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-scale.animated {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Stagger animation delays for multiple elements */
+.fade-in-up:nth-child(1) { transition-delay: 0.1s; }
+.fade-in-up:nth-child(2) { transition-delay: 0.2s; }
+.fade-in-up:nth-child(3) { transition-delay: 0.3s; }
+.fade-in-up:nth-child(4) { transition-delay: 0.4s; }
+.fade-in-up:nth-child(5) { transition-delay: 0.5s; }
+.fade-in-up:nth-child(6) { transition-delay: 0.6s; }

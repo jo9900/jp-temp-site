@@ -29,12 +29,17 @@
 <!--    <link rel="apple-touch-icon" href="assets/logo-b.png">-->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@200;400;600&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="browser-compatibility.css">
-    <link rel="stylesheet" href="performance-optimizations.css">
-    <link rel="stylesheet" href="safari-animation-fix.css">
-    <link rel="stylesheet" href="firefox-compatibility-fix.css">
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="src/css/base/normalize.css">
+    <link rel="stylesheet" href="src/css/base/performance-optimizations.css">
+    
+    <!-- Browser Compatibility -->
+    <link rel="stylesheet" href="src/css/browser-fixes/browser-compatibility.css">
+    <link rel="stylesheet" href="src/css/browser-fixes/firefox-compatibility-fix.css">
+    <link rel="stylesheet" href="src/css/browser-fixes/safari-animation-fix.css">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="src/css/main.css">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -148,7 +153,7 @@
         <div class="ceo-message fade-in-scale">
             <h3 data-i18n="company.ceoMessage">創業者メッセージ（Company Vision）</h3>
             <p data-i18n="company.ceoText">私たちは革新的な技術ソリューションを通じて、企業の成長と社会の発展に貢献します。</p>
-            <p class="ceo-name">Duncan Wong</p>
+            <p class="ceo-name" data-i18n="company.ceoName">Duncan Wong</p>
         </div>
 
         <!-- Company Overview -->
@@ -195,7 +200,7 @@
         </div>
 
         <!-- Main Products -->
-        <h3 style="text-align: center; margin: 3rem 0 2rem 0; color: #8b5cf6;">主な製品</h3>
+        <h3 style="text-align: center; margin: 3rem 0 2rem 0; color: #8b5cf6;" data-i18n="business.products">主な製品</h3>
         <div class="products-grid">
             <div class="product-card fade-in-up">
                 <h4 data-i18n="products.edgeAI">エッジAIモデルのローカライズされたアプリケーション</h4>
@@ -224,7 +229,7 @@
         </div>
 
         <!-- Case Studies -->
-        <h3 style="text-align: center; margin: 3rem 0 2rem 0; color: #8b5cf6;">実績</h3>
+        <h3 style="text-align: center; margin: 3rem 0 2rem 0; color: #8b5cf6;" data-i18n="business.achievements">実績</h3>
         <div class="achievements-showcase">
             <div class="achievement-card featured">
                 <div class="achievement-header">
@@ -288,7 +293,7 @@
 <!-- News Section -->
 <section id="news" class="section">
     <div class="container">
-        <h2>お知らせ (News)</h2>
+        <h2 data-i18n="news.title">お知らせ</h2>
         <div class="news-item">
             <h4 data-i18n="news.openingTitle">株式会社エーブル開業のお知らせ</h4>
             <p class="date" data-i18n="news.openingDate">2024年9月</p>
@@ -400,18 +405,22 @@
 <!-- Footer -->
 <footer>
     <div class="container">
-        <p>&copy; 2024 株式会社エーブル (ABEL & Co., Ltd.). All rights reserved.</p>
-        <p style="font-size: 0.9rem; margin-top: 1rem;">
+        <p data-i18n="footer.copyright">&copy; 2024 株式会社エーブル (ABEL & Co., Ltd.). All rights reserved.</p>
+        <p style="font-size: 0.9rem; margin-top: 1rem;" data-i18n="footer.address">
             〒105-6923 東京都港区虎ノ門４丁目１番１号 神谷町トラストタワー22階wework 122
         </p>
     </div>
 </footer>
 
 <!-- Scripts -->
-<script src="js/translations.js"></script>
-<script src="js/language-switcher.js"></script>
-<script src="js/animations.js"></script>
-<script src="js/interactions.js"></script>
-<script src="script.js"></script>
+<!-- I18n -->
+<script src="src/i18n/index.js"></script>
+<script src="src/js/i18n/language-switcher.js"></script>
+
+<!-- Core JavaScript -->
+<script src="src/js/core/background-effects.js"></script>
+<script src="src/js/core/animations.js"></script>
+<script src="src/js/core/interactions.js"></script>
+<script src="src/js/core/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,114 @@
+/* Keyframe Animations */
+
+@keyframes gradientMorph {
+    0%, 100% { background-position: 0% 50%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 50% 100%; }
+    75% { background-position: 50% 0%; }
+}
+
+@keyframes borderFlow {
+    0%, 100% { background-position: 0% 50%, 0% 50%; }
+    50% { background-position: 0% 50%, 100% 50%; }
+}
+
+@keyframes meshMove {
+    0% { transform: translateX(0) translateY(0) rotate(0deg); }
+    100% { transform: translateX(100px) translateY(100px) rotate(360deg); }
+}
+
+@keyframes backgroundShift {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-20px, -10px) rotate(0.5deg); }
+    50% { transform: translate(20px, 20px) rotate(-0.5deg); }
+    75% { transform: translate(-10px, 30px) rotate(0.3deg); }
+}
+
+@keyframes borderGradientMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes containerFloat {
+    0%, 100% { transform: translateY(0px) rotateX(0deg); }
+    50% { transform: translateY(-10px) rotateX(1deg); }
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20px, 20px); }
+}
+
+@keyframes conicRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-2px) rotate(5deg); }
+}
+
+@keyframes sectionSweep {
+    0%, 100% { transform: skewX(-15deg) translateX(-100%); }
+    50% { transform: skewX(-15deg) translateX(100%); }
+}
+
+@keyframes borderGlow {
+    0%, 100% {
+        box-shadow: 0 0 50px rgba(0, 212, 255, 0.3);
+        background: linear-gradient(45deg, #00d4ff, #8b5cf6, #3b82f6);
+    }
+    50% {
+        box-shadow: 0 0 80px rgba(139, 92, 246, 0.6);
+        background: linear-gradient(45deg, #8b5cf6, #3b82f6, #00d4ff);
+    }
+}
+
+@keyframes sectionGlow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+@keyframes achievementRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg) translateZ(0);
+        opacity: 0;
+        scale: 0;
+    }
+    15% {
+        opacity: 0.8;
+        scale: 1;
+    }
+    85% {
+        opacity: 0.8;
+        scale: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(150px) rotate(360deg) translateZ(0);
+        opacity: 0;
+        scale: 0;
+    }
+}
+
+@keyframes floatShape {
+    0% {
+        transform: translateY(100vh) rotate(0deg) translateZ(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.1;
+    }
+    80% {
+        opacity: 0.1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg) translateZ(0);
+        opacity: 0;
+    }
+}

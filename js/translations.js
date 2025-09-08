@@ -16,6 +16,7 @@ const translations = {
     company: {
       title: '企業情報',
       ceoMessage: '創業者メッセージ（Company Vision）',
+      ceoName: 'Duncan Wong',
       ceoText: '私たちは革新的な技術ソリューションを通じて、企業の成長と社会の発展に貢献します。',
       overview: '会社概要',
       purpose: '目的・事業内容',
@@ -79,7 +80,7 @@ const translations = {
       quantTradingDesc: '高度なアルゴリズムを活用した定量取引ソフトウェア'
     },
     news: {
-      title: 'お知らせ (News)',
+      title: 'お知らせ',
       openingTitle: '株式会社エーブル開業のお知らせ',
       openingDate: '2024年9月',
       openingContent: 'この度、株式会社エーブルを設立いたしましたことをお知らせいたします。今後ともよろしくお願いいたします。'
@@ -115,6 +116,10 @@ const translations = {
       other: 'その他',
       messageLabel: 'お問い合わせ内容 *',
       submit: '送信する'
+    },
+    footer: {
+      copyright: '© 2024 株式会社エーブル (ABEL & Co., Ltd.). All rights reserved.',
+      address: '〒105-6923 東京都港区虎ノ門４丁目１番１号 神谷町トラストタワー22階wework 122'
     }
   },
   
@@ -134,6 +139,7 @@ const translations = {
     company: {
       title: 'Company Information',
       ceoMessage: 'Founder\'s Message (Company Vision)',
+      ceoName: 'Duncan Wong',
       ceoText: 'We contribute to corporate growth and social development through innovative technology solutions.',
       overview: 'Company Overview',
       purpose: 'Business Purpose & Content',
@@ -233,6 +239,10 @@ const translations = {
       other: 'Other',
       messageLabel: 'Inquiry Content *',
       submit: 'Send'
+    },
+    footer: {
+      copyright: '© 2024 ABEL & Co., Ltd. All rights reserved.',
+      address: '〒105-6923 4-1-1 Toranomon, Minato-ku, Tokyo, Kamiyacho Trust Tower 22F WeWork 122'
     }
   },
 
@@ -252,6 +262,7 @@ const translations = {
     company: {
       title: '企業資訊',
       ceoMessage: '創辦人訊息（公司願景）',
+      ceoName: 'Duncan Wong',
       ceoText: '我們透過創新技術解決方案，為企業成長和社會發展做出貢獻。',
       overview: '公司概要',
       purpose: '事業目的與內容',
@@ -351,6 +362,10 @@ const translations = {
       other: '其他',
       messageLabel: '諮詢內容 *',
       submit: '發送'
+    },
+    footer: {
+      copyright: '© 2024 ABEL株式會社 (ABEL & Co., Ltd.) 保留所有權利。',
+      address: '〒105-6923 東京都港區虎之門4丁目1-1 神谷町信託大樓22樓WeWork 122'
     }
   },
 
@@ -370,6 +385,7 @@ const translations = {
     company: {
       title: '회사정보',
       ceoMessage: '창립자 메시지 (회사 비전)',
+      ceoName: 'Duncan Wong',
       ceoText: '혁신적인 기술 솔루션을 통해 기업의 성장과 사회 발전에 기여합니다.',
       overview: '회사 개요',
       purpose: '사업 목적 및 내용',
@@ -469,6 +485,10 @@ const translations = {
       other: '기타',
       messageLabel: '문의 내용 *',
       submit: '전송'
+    },
+    footer: {
+      copyright: '© 2024 ABEL 주식회사 (ABEL & Co., Ltd.) 모든 권리 보유.',
+      address: '〒105-6923 도쿄도 미나토구 도라노몬4초메1-1 가미야쳐 트러스트타워 22층 WeWork 122'
     }
   },
 
@@ -488,6 +508,7 @@ const translations = {
     company: {
       title: 'Maklumat Syarikat',
       ceoMessage: 'Mesej Pengasas (Visi Syarikat)',
+      ceoName: 'Duncan Wong',
       ceoText: 'Kami menyumbang kepada pertumbuhan korporat dan pembangunan sosial melalui penyelesaian teknologi yang inovatif.',
       overview: 'Gambaran Keseluruhan Syarikat',
       purpose: 'Tujuan & Kandungan Perniagaan',
@@ -587,6 +608,10 @@ const translations = {
       other: 'Lain-lain',
       messageLabel: 'Kandungan Pertanyaan *',
       submit: 'Hantar'
+    },
+    footer: {
+      copyright: '© 2024 ABEL Sdn. Bhd. (ABEL & Co., Ltd.) Hak cipta terpelihara.',
+      address: '〒105-6923 Tokyo Minato-ku Toranomon 4-chome 1-1 Kamiyacho Trust Tower Tingkat 22 WeWork 122'
     }
   },
 
@@ -606,6 +631,7 @@ const translations = {
     company: {
       title: 'ข้อมูลบริษัท',
       ceoMessage: 'ข้อความจากผู้ก่อตั้ง (วิสัยทัศน์บริษัท)',
+      ceoName: 'Duncan Wong',
       ceoText: 'เรามีส่วนร่วมในการเติบโตขององค์กรและการพัฒนาสังคมผ่านโซลูชันเทคโนโลยีที่นวัตกรรม',
       overview: 'ภาพรวมบริษัท',
       purpose: 'วัตถุประสงค์และเนื้อหาธุรกิจ',
@@ -705,6 +731,10 @@ const translations = {
       other: 'อื่นๆ',
       messageLabel: 'เนื้อหาการสอบถาม *',
       submit: 'ส่ง'
+    },
+    footer: {
+      copyright: '© 2024 ABEL จำกัด (ABEL & Co., Ltd.) สงวนลิขสิทธิ์',
+      address: '〒105-6923 โตเกียว มินาโตะ-คุ โทรานะมง 4-โชเมะ 1-1 คามิยะโจ ทรัสต์ ทาวเวอร์ ชั้น 22 WeWork 122'
     }
   },
 
@@ -724,6 +754,7 @@ const translations = {
     company: {
       title: 'Informasi Perusahaan',
       ceoMessage: 'Pesan Pendiri (Visi Perusahaan)',
+      ceoName: 'Duncan Wong',
       ceoText: 'Kami berkontribusi pada pertumbuhan perusahaan dan pembangunan sosial melalui solusi teknologi inovatif.',
       overview: 'Gambaran Umum Perusahaan',
       purpose: 'Tujuan & Konten Bisnis',
@@ -823,6 +854,10 @@ const translations = {
       other: 'Lainnya',
       messageLabel: 'Konten Pertanyaan *',
       submit: 'Kirim'
+    },
+    footer: {
+      copyright: '© 2024 PT ABEL (ABEL & Co., Ltd.) Hak cipta dilindungi.',
+      address: '〒105-6923 Tokyo Minato-ku Toranomon 4-chome 1-1 Kamiyacho Trust Tower Lantai 22 WeWork 122'
     }
   }
 };
