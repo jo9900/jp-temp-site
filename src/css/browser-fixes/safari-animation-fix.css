@@ -2,4 +2,82 @@
 
 @supports (-webkit-backdrop-filter: blur(1px)) {
     /* Safari hardware acceleration for smooth animations */
+    .achievement-card,
+    .product-card,
+    .info-card {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+        will-change: transform;
+    }
+    
+    /* Simplify hover animations for Safari to prevent stuttering */
+    .achievement-card:hover {
+        -webkit-transform: translateY(-8px) scale(1.02) translateZ(0) !important;
+        transform: translateY(-8px) scale(1.02) translateZ(0) !important;
+    }
+    
+    .achievement-card:nth-child(even):hover {
+        -webkit-transform: translateY(-8px) scale(1.02) translateZ(0) !important;
+        transform: translateY(-8px) scale(1.02) translateZ(0) !important;
+    }
+    
+    .achievement-card:nth-child(3n):hover {
+        -webkit-transform: translateY(-8px) scale(1.02) translateZ(0) !important;
+        transform: translateY(-8px) scale(1.02) translateZ(0) !important;
+    }
+    
+    .product-card:hover {
+        -webkit-transform: translateY(-8px) scale(1.02) translateZ(0) !important;
+        transform: translateY(-8px) scale(1.02) translateZ(0) !important;
+    }
+    
+    .info-card:hover {
+        -webkit-transform: translateY(-10px) scale(1.02) translateZ(0) !important;
+        transform: translateY(-10px) scale(1.02) translateZ(0) !important;
+    }
+    
+    /* Optimize backdrop-filter intensity for Safari */
+    .achievement-card,
+    .product-card,
+    .info-card {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+    
+    /* Smoother transitions specifically for Safari */
+    .achievement-card,
+    .product-card,
+    .info-card {
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                           box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                           border-color 0.3s ease !important;
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                   box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                   border-color 0.3s ease !important;
+    }
+    
+    /* Disable complex rotating animations on Safari for performance */
+    .achievement-card::after {
+        -webkit-animation: none !important;
+        animation: none !important;
+    }
+    
+    .product-card::before,
+    .info-card::before {
+        -webkit-animation: none !important;
+        animation: none !important;
+    }
+    
+    /* Simple opacity transition instead of complex animations */
+    .achievement-card:hover::after,
+    .product-card:hover::before,
+    .info-card:hover::before {
+        opacity: 0.8 !important;
+        -webkit-transition: opacity 0.3s ease !important;
+        transition: opacity 0.3s ease !important;
+    }
 }
